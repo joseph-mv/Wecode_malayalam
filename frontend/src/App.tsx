@@ -1,14 +1,7 @@
+import "./App.css";
 
-import './App.css'
-
-function App() {
- 
-
-  return (
-    <div className=''>
-      web diary
-    </div>
-  )
+export const  App=()=> {
+  return <div className="">web diary</div>;
 }
 
-export default App
+

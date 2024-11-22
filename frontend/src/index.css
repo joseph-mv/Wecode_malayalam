@@ -8,8 +8,11 @@
   font-weight: 400;
 
   color-scheme:light dark;
-  color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
+ 
+  --main-bg-color: #FAF7F0;
+  --primary-color:#D8D2C2;
+  --secondary-color:#B17457;
+  --main-text-color:#4A4947 ;
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
@@ -18,10 +21,37 @@
 }
 
 
-@media (prefers-color-scheme: light) {
+@media (prefers-color-scheme: dark) {
   :root {
-    color: #213547;
-    background-color: #ffffff;
+    --main-bg-color: #243642;
+    --primary-color:#387478;
+    --secondary-color:#629584;
+    --main-text-color:#E2F1E7 ;
   }
  
 }
+
+html {
+  font-size: 16px; /* Base font size */
+}
+@media (max-width: 768px) {
+  html {
+    font-size: 14px;
+  }
+}
+
+.bg-hero{
+  background: linear-gradient(
+    to bottom, 
+    var(--main-bg-color) 0%,
+    rgba(0, 0, 255, 0) 5%,
+    rgba(12, 12, 12, 0.33) 80%, /* Transparent to color transition */
+    var(--main-bg-color) 100% /* Merged color at the bottom */
+),url('/images/heroBg.webp');
+background-size: cover;
+  background-position: center;
+
+
+}
+
+

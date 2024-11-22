@@ -1,8 +1,11 @@
+import { Header } from "../components/Header/Header"
+import { Hero } from "../components/Hero/Hero"
 
 export const HomePage = () => {
   return (
     <div className="">
-      <h1> web diary</h1>
+      <Header/>
+      <Hero/>
     </div>
   )
 }

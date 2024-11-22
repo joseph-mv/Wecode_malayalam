@@ -20,7 +20,7 @@ export const Header: React.FC = () => {
   return (
     <header className=" flex p-3 h-20  justify-between items-center ">
       <div className="">
-        <img style={{ width: "50px", height: "auto" }} src="images/logo.png" alt="" />
+        <img style={{ width: "50px", height: "auto" }} src="images/logo.png" alt="logo" />
       </div>
       <button className="md:hidden relative z-20 w-[30px]  h-[20px]">
         <label

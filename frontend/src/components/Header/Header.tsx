@@ -14,7 +14,13 @@ export const Header: React.FC = () => {
   const [isOpen, setIsOpen] = useState<boolean>(false);
 
   const toggleMenu = () => {
-    setIsOpen((prev) => !prev);
+    if (!isOpen) {
+      document.body.classList.add("fixed","w-full");
+    } else {
+      
+      document.body.classList.remove("fixed","w-full");
+    }
+    setIsOpen(prev=>!prev)
   };
 
   return (
@@ -31,6 +37,7 @@ export const Header: React.FC = () => {
             className="hidden peer"
             type="checkbox"
             id="burger"
+            checked={isOpen}
             onChange={toggleMenu}
           />
           <span className="absolute top-0 block h-[4px] w-full origin-left transition-all bg-black peer-checked:rotate-45 peer-checked:left-[4.5px]"></span>
@@ -38,10 +45,10 @@ export const Header: React.FC = () => {
           <span className="absolute top-[100%]  block h-[4px]  w-full origin-left transition-all bg-black peer-checked:-rotate-45 peer-checked:left-[4.5px] peer-checked:top-[21px]"></span>
         </label>
       </button>
-      <nav
+      <nav onMouseLeave={toggleMenu}
         className={`md:flex-row md:relative md:right-0  gap-3 font-bold flex flex-col ${
           isOpen
-            ? "fixed z-10 text-white  h-[100vh] top-2 rounded pt-[60px] transition-all  right-0 w-[200px]  gap-4 flex backdrop-blur-sm  p-2   md:h-auto md:w-auto md:top-0 md:bg-transparent md:backdrop-sepia-0"
+            ? "fixed z-10 text-white  h-[100vh] top-2 rounded pt-[60px] transition-all  right-0 w-[200px]  gap-4 flex backdrop-blur-sm  p-2   md:h-auto md:w-auto md:top-0 md:bg-transparent md:backdrop-blur-none md:text-mainText md:pt-0 "
             : "fixed -right-[200px] transition-all"
         }`}
       >

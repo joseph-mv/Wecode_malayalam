@@ -1,18 +1,20 @@
 import { useState } from "react";
+import { JSX } from "react/jsx-runtime";
 
 export type FormData = Record<string, string>;
 
 
 export type WithForm=  {
-  status: string;
-  handleSubmit:  (e: React.FormEvent) => Promise<void>
-  handleChange: (e: React.ChangeEvent<HTMLTextAreaElement | HTMLInputElement>) => void;
-  formData:FormData
+  status?: string;
+  handleSubmit?:  (e: React.FormEvent) => Promise<void>
+  handleChange?: (e: React.ChangeEvent<HTMLTextAreaElement | HTMLInputElement>) => void;
+  formData?:FormData;
+  setIsLogin:React.Dispatch<React.SetStateAction<boolean>>
 }
-type Wrap=({ status, handleSubmit, handleChange, formData }:WithForm)=>JSX.Element
+type Wrap=({ status, handleSubmit, handleChange, formData }:WithForm)=>JSX.Element | null
 
 export const withFormHandler = (WrappedComponent:Wrap,initialFormData:FormData) => {
-  return function FormComponent() {  
+  return function FormComponent(props: JSX.IntrinsicAttributes & WithForm) {  
     // State to manage form submission status
     const [formData,setFormData]=useState(initialFormData)
     const [status, setStatus] = useState('');
@@ -31,12 +33,6 @@ export const withFormHandler = (WrappedComponent:Wrap,initialFormData:FormData) 
     const handleSubmit = async (e:React.FormEvent) => {
       e.preventDefault();
   
-      // Simple validation (You can enhance this)
-      if (!formData.name || !formData.email || !formData.message) {
-        setStatus('Please fill all fields');
-        return;
-      }
-  
       //  API request 
       try {
         console.log(setFormData)
@@ -52,7 +48,7 @@ export const withFormHandler = (WrappedComponent:Wrap,initialFormData:FormData) 
         console.log(error)
       }
     };
-    return <WrappedComponent status={status} formData={formData} handleSubmit={handleSubmit} handleChange={handleChange}/>
+    return <WrappedComponent {...props} status={status} formData={formData} handleSubmit={handleSubmit} handleChange={handleChange} />
   }
    
   

@@ -20,7 +20,7 @@ const ContactSection = ({status ,handleSubmit,handleChange,formData}:WithForm) =
               type="text"
               id="name"
               name="name"
-              value={formData.name}
+              value={formData?.name}
               onChange={handleChange}
               className="w-full p-3 border border-gray-300 rounded-lg"
               placeholder="Enter your name"
@@ -34,7 +34,7 @@ const ContactSection = ({status ,handleSubmit,handleChange,formData}:WithForm) =
               type="email"
               id="email"
               name="email"
-              value={formData.email}
+              value={formData?.email}
               onChange={handleChange}
               className="w-full p-3 border border-gray-300 rounded-lg"
               placeholder="Enter your email"
@@ -47,7 +47,7 @@ const ContactSection = ({status ,handleSubmit,handleChange,formData}:WithForm) =
             <textarea
               id="message"
               name="message"
-              value={formData.message}
+              value={formData?.message}
               onChange={handleChange}
               className="w-full p-3 border border-gray-300 rounded-lg"
               placeholder="Your message here"

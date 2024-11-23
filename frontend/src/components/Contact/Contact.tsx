@@ -13,7 +13,7 @@ const ContactSection = ({status ,handleSubmit,handleChange,formData}:WithForm) =
         <h2 className="text-4xl font-bold mb-8">Contact Us</h2>
         <p className="text-lg mb-8">We would love to hear from you! Please fill out the form below to reach us.</p>
 
-        <form onSubmit={handleSubmit} className="m-2 p-6 rounded-lg shadow-md outline">
+        <form onSubmit={handleSubmit} className="m-4 p-6 rounded-lg shadow-md outline">
           <div className="mb-4">
             <label htmlFor="name" className="block text-left text-lg font-semibold mb-2">Name:</label>
             <input

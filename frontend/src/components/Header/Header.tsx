@@ -45,7 +45,9 @@ export const Header: React.FC = () => {
           <span className="absolute top-[100%]  block h-[4px]  w-full origin-left transition-all bg-black peer-checked:-rotate-45 peer-checked:left-[4.5px] peer-checked:top-[21px]"></span>
         </label>
       </button>
-      <nav onMouseLeave={toggleMenu}
+      <nav onMouseLeave={()=>{
+        toggleMenu()
+        setIsOpen(false)}}
         className={`md:flex-row md:relative md:right-0  gap-3 font-bold flex flex-col ${
           isOpen
             ? "fixed z-10 text-white  h-[100vh] top-2 rounded pt-[60px] transition-all  right-0 w-[200px]  gap-4 flex backdrop-blur-sm  p-2   md:h-auto md:w-auto md:top-0 md:bg-transparent md:backdrop-blur-none md:text-mainText md:pt-0 "

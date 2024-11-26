@@ -25,7 +25,7 @@ export const Authentication = ({ onClose, isOpen }:Auth) => {
 
         <div className="text-center pt-8 pb-6 bg-gradient-to-r from-purple-600 to-blue-600 text-white px-8 rounded-t-3xl">
           <h1 className="text-3xl font-bold mb-2">WeCode Malayalam</h1>
-          <p className="text-purple-100">Welcome back to our community</p>
+          <p className="text-purple-100">{isLogin? " Welcome back to our community" : "Embracing the future of technology with WeCode Malayalam"}</p>
         </div>
         {isLogin?<Login setIsLogin={setIsLogin} />:<Signup setIsLogin={setIsLogin}/> }
         

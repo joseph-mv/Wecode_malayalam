@@ -115,11 +115,11 @@ function LoginPopup({
           </p>
         </div>
       </form>
-      {status && <p className="text-lg mb-4">{status}</p>}
+      {status && <p className="text-lg mb-4 text-red-500">{status}</p>}
     </>
   );
 }
 
-const Login = withFormHandler(LoginPopup, initialFormData);
+const Login = withFormHandler(LoginPopup, initialFormData,'users/login');
 
 export default Login;

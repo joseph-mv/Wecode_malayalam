@@ -4,13 +4,12 @@ interface IUser {
   name: string;
   email: string;
   password: string;
+  verificationToken:string;
+  isVerified:boolean;
+  createdAt:Date
 }
 
 const userSchema = new Schema<IUser>({
-  name: {
-    type: String,
-    required: true,
-  },
   email: {
     type: String,
     required: true,
@@ -20,6 +19,18 @@ const userSchema = new Schema<IUser>({
     type: String,
     required: true,
   },
+  verificationToken:{
+    type: String,
+    required: true,
+  },
+  isVerified:{
+    type:Boolean,
+    required:true
+  },
+  createdAt:{
+    type:Date,
+    required:true
+  }
 });
 
 const User = model<IUser>('User', userSchema);

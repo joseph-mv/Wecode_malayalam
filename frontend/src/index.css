@@ -23,10 +23,10 @@
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --main-bg-color: #243642;
+    --main-bg-color: #121212;
     --primary-color:#387478;
     --secondary-color:#629584;
-    --main-text-color:#E2F1E7 ;
+    --main-text-color:#ffffff ;
   }
  
 }

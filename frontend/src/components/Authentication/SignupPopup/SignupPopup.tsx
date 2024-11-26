@@ -117,7 +117,7 @@ function SignupPopup({
               </p>
             </div>
           </div>
-
+          {status && <p className="text-lg text-red-500 mb-4">{status}</p>}
           <button
             type="submit"
             className="w-full bg-gradient-to-r from-purple-600 to-blue-600 text-white py-2.5 rounded-xl font-medium hover:from-purple-700 hover:to-blue-700 transition-all duration-300 shadow-md hover:shadow-lg disabled:opacity-70 disabled:cursor-not-allowed mt-2"
@@ -160,11 +160,11 @@ function SignupPopup({
           </p>
         </div>
       </form>
-      {status && <p className="text-lg mb-4">{status}</p>}
+      
     </>
   );
 }
 
-const Signup = withFormHandler(SignupPopup, initialFormData);
+const Signup = withFormHandler(SignupPopup, initialFormData,'users/signup');
 
 export default Signup;

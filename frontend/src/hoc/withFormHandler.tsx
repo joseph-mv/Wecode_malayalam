@@ -1,3 +1,4 @@
+import axios from "axios";
 import { useState } from "react";
 import { JSX } from "react/jsx-runtime";
 
@@ -12,8 +13,8 @@ export type WithForm=  {
   setIsLogin:React.Dispatch<React.SetStateAction<boolean>>
 }
 type Wrap=({ status, handleSubmit, handleChange, formData }:WithForm)=>JSX.Element | null
-
-export const withFormHandler = (WrappedComponent:Wrap,initialFormData:FormData) => {
+const BASE_URL = import.meta.env.VITE_BASE_URL
+export const withFormHandler = (WrappedComponent:Wrap,initialFormData:FormData,url:string) => {
   return function FormComponent(props: JSX.IntrinsicAttributes & WithForm) {  
     // State to manage form submission status
     const [formData,setFormData]=useState(initialFormData)
@@ -28,24 +29,27 @@ export const withFormHandler = (WrappedComponent:Wrap,initialFormData:FormData) 
         [name]: value
       }));
     };
-  console.log(formData)
+  // console.log(formData,url)
     // Handle form submission
     const handleSubmit = async (e:React.FormEvent) => {
       e.preventDefault();
   
       //  API request 
       try {
-        console.log(setFormData)
-  
-        setStatus('Message sent successfully!');
+        // console.log(formData)
+        
+      const response=  await axios.post(BASE_URL+'/'+url,formData)
+      console.log(response.data.msg || response.data.error)
+        setStatus(response.data.msg || response.data.error);
         setFormData({
           name: '',
           email: '',
           message: ''
         });
-      } catch (error) {
-        setStatus('Something went wrong. Please try again later.');
-        console.log(error)
+      } catch (error: unknown) {
+        setStatus(error?.response.data.message);
+        console.log(error.response)
+        console.log(error?.response.data.message)
       }
     };
     return <WrappedComponent {...props} status={status} formData={formData} handleSubmit={handleSubmit} handleChange={handleChange} />

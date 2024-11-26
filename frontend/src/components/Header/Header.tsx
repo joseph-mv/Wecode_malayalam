@@ -27,7 +27,7 @@ export const Header: React.FC = () => {
 
   return (
     <header className=" flex p-3 h-20  justify-between items-center ">
-      <div className="">
+      <div className="rounded-full outline outline-mainText outline-1">
         <img
           style={{ width: "50px", height: "auto" }}
           src="images/logo.png"
@@ -46,9 +46,9 @@ export const Header: React.FC = () => {
             checked={isOpen}
             onChange={toggleMenu}
           />
-          <span className="absolute top-0 block h-[4px] w-full origin-left transition-all bg-black peer-checked:rotate-45 peer-checked:left-[4.5px]"></span>
-          <span className="absolute top-[50%] block h-[4px] w-full  bg-black peer-checked:bg-transparent"></span>
-          <span className="absolute top-[100%]  block h-[4px]  w-full origin-left transition-all bg-black peer-checked:-rotate-45 peer-checked:left-[4.5px] peer-checked:top-[21px]"></span>
+          <span className="absolute top-0 block h-[4px] w-full origin-left transition-all bg-mainText peer-checked:rotate-45 peer-checked:left-[4.5px]"></span>
+          <span className="absolute top-[50%] block h-[4px] w-full  bg-mainText peer-checked:bg-transparent"></span>
+          <span className="absolute top-[100%]  block h-[4px]  w-full origin-left transition-all bg-mainText peer-checked:-rotate-45 peer-checked:left-[4.5px] peer-checked:top-[21px]"></span>
         </label>
       </button>
       <nav

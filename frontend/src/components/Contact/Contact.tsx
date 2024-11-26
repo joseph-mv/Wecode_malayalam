@@ -67,7 +67,7 @@ const ContactSection = ({status ,handleSubmit,handleChange,formData}:WithForm) =
   );
 };
 
-const ContactWithForm =withFormHandler(ContactSection,initialFormData)
+const ContactWithForm =withFormHandler(ContactSection,initialFormData,'users/contact')
 
 export default ContactWithForm
 

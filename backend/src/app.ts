@@ -22,7 +22,7 @@ app.use(helmet());
 app.use(logger);
 
 // Routes
-app.use('/api', routes);
+app.use('/', routes);
 
 // Error Handler Middleware
 app.use(errorHandler);

@@ -105,13 +105,13 @@ function LoginPopup({
 
           <p className="text-center text-gray-600 mt-6">
             Don't have an account?{" "}
-            <a
+          {setIsLogin?  <a
             onClick={()=>setIsLogin(false)}
               href="#"
               className="text-purple-600 hover:text-purple-700 font-medium"
             >
               Sign Up
-            </a>
+            </a>:''}
           </p>
         </div>
       </form>

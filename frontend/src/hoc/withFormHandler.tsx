@@ -10,7 +10,7 @@ export type WithForm=  {
   handleSubmit?:  (e: React.FormEvent) => Promise<void>
   handleChange?: (e: React.ChangeEvent<HTMLTextAreaElement | HTMLInputElement>) => void;
   formData?:FormData;
-  setIsLogin:React.Dispatch<React.SetStateAction<boolean>>
+  setIsLogin?:React.Dispatch<React.SetStateAction<boolean>>
 }
 type Wrap=({ status, handleSubmit, handleChange, formData }:WithForm)=>JSX.Element | null
 interface ErrorResponse {

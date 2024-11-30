@@ -1,4 +1,4 @@
-import axios from "axios";
+import axios, { AxiosError } from "axios";
 import { useState } from "react";
 import { JSX } from "react/jsx-runtime";
 
@@ -10,9 +10,12 @@ export type WithForm=  {
   handleSubmit?:  (e: React.FormEvent) => Promise<void>
   handleChange?: (e: React.ChangeEvent<HTMLTextAreaElement | HTMLInputElement>) => void;
   formData?:FormData;
-  setIsLogin?:React.Dispatch<React.SetStateAction<boolean>>
+  setIsLogin:React.Dispatch<React.SetStateAction<boolean>>
 }
 type Wrap=({ status, handleSubmit, handleChange, formData }:WithForm)=>JSX.Element | null
+interface ErrorResponse {
+  message: string;
+}
 const BASE_URL = import.meta.env.VITE_BASE_URL
 export const withFormHandler = (WrappedComponent:Wrap,initialFormData:FormData,url:string) => {
   return function FormComponent(props: JSX.IntrinsicAttributes & WithForm) {  
@@ -46,10 +49,16 @@ export const withFormHandler = (WrappedComponent:Wrap,initialFormData:FormData,u
           email: '',
           message: ''
         });
-      } catch (error: unknown) {
-        setStatus(error?.response.data.message);
-        console.log(error.response)
-        console.log(error?.response.data.message)
+      } catch (error) {
+
+        const axiosError = error as AxiosError<ErrorResponse>;
+        if (axiosError.response) {
+          setStatus(axiosError.response.data.message);
+        } else {
+          setStatus('An unexpected error occurred');
+        }
+        // console.log(error.response)
+        // console.log(error?.response.data.message)
       }
     };
     return <WrappedComponent {...props} status={status} formData={formData} handleSubmit={handleSubmit} handleChange={handleChange} />

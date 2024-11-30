@@ -4,7 +4,7 @@ import { useState } from "react";
 import { Authentication } from "../Authentication/Authentication";
 
 export const Hero = () => {
-  const [isSignupOpen, setIsSignupOpen] = useState(true);
+  const [isSignupOpen, setIsSignupOpen] = useState(false);
   const onOpen=()=>setIsSignupOpen(true)
   return (
     <section className="relative h-[550px] bg-hero bg-blend-overlay antialiased flex flex-col justify-center pl-[calc(2*10%)] pr-[10%]">

@@ -70,28 +70,28 @@ export const Header: React.FC = () => {
         </Link>
         <Link
           className="link flex items-center gap-2 p-2 hover:scale-105 "
-          to="/destinations"
+          to="/events"
         >
           <FontAwesomeIcon icon={faMapMarkedAlt} className="text-xl" />
           <span>Events</span>
         </Link>
         <Link
           className="link flex items-center gap-2 p-2 hover:scale-105 "
-          to="/trips"
+          to="/resources"
         >
           <FontAwesomeIcon icon={faBook} className="text-xl" />
           <span>Resources</span>
         </Link>
         <Link
           className="link flex items-center gap-2 p-2 hover:scale-105 "
-          to="/about"
+          to="/discussions"
         >
           <FontAwesomeIcon icon={faInfoCircle} className="text-xl" />
           <span>Discussions</span>
         </Link>
         <Link
           className="link flex items-center gap-2 p-2 hover:scale-105 "
-          to="/contact"
+          to="/colleges"
         >
           <FontAwesomeIcon icon={faUniversity} className="text-xl" />
           <span>Colleges</span>

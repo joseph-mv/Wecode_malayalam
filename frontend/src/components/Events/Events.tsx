@@ -1,6 +1,6 @@
 import  { useState } from 'react';
 import { Event } from './type';
-import { SearchBar } from './SearchBar';
+import { SearchBar } from '../SearchBar';
 import { FilterSection } from './FilterSections';
 import { EventCard } from './EventCard';
 

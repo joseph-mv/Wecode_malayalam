@@ -55,9 +55,9 @@ export const Header: React.FC = () => {
         onMouseLeave={() => {
           setIsOpen(false);
         }}
-        className={`md:flex-row md:relative md:right-0  gap-3 font-bold flex flex-col ${
+        className={`md:flex-row md:text-mainText md:relative md:right-0  gap-3 font-bold flex flex-col ${
           isOpen
-            ? "fixed z-10 text-white  h-[100vh] top-2 rounded pt-[60px] transition-all  right-0 w-[200px]  gap-4 flex backdrop-blur-sm  p-2   md:h-auto md:w-auto md:top-0 md:bg-transparent md:backdrop-blur-none md:text-mainText md:pt-0 "
+            ? "fixed z-10 text-white  h-[100vh] top-0 rounded pt-[60px] transition-all  right-0 w-[200px]  gap-4 flex backdrop-blur-sm bg-black bg-opacity-35  p-2   md:h-auto md:w-auto md:top-0 md:bg-transparent md:backdrop-blur-none md:text-mainText md:pt-0 "
             : "fixed -right-[200px] transition-all"
         }`}
       >

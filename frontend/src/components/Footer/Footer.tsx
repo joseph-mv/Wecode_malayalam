@@ -3,7 +3,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faFacebookF,faTwitter,faInstagram,faYoutube } from '@fortawesome/free-brands-svg-icons';
 const Footer = () => {
   return (
-    <footer className=" px-4 py-8 flex flex-col  justify-between items-center gap-6">
+    <footer className=" text-mainText px-4 py-8 flex flex-col  justify-between items-center gap-6">
       <div className="flex items-center">
         <Link to="/" className="text-3xl font-bold ">Wecode Malayalam</Link>
       </div>
